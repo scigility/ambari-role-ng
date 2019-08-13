@@ -8,10 +8,11 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: centos7-x86_64
+  - name: centos7-x86-64
     box: centos/7
 provisioner:
   name: ansible
+  log: true
   lint:
     name: ansible-lint
 verifier:

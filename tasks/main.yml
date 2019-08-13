@@ -1,2 +1,13 @@
 ---
-# tasks file for ambari-role-ng
+# Variable setup.
+- name: Detect OS and architecture
+  set_fact:
+    os_family_release: "{{ ansible_os_family | lower }}{{ ansible_distribution_major_version }}"
+    os_arch: "{{ ansible_machine }}"
+    
+- name: Include OS- and architecture specific variables.
+  include_vars: "{{ os_family_release }}-{{ os_arch }}.yml"
+
+# Setup/install tasks.
+- include_tasks: "setup-{{ os_family_release }}.yml"
+  

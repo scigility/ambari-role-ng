@@ -3,3 +3,4 @@
   hosts: all
   roles:
     - role: ambari-role-ng
+      become: true

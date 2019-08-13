@@ -1,0 +1,14 @@
+---
+- name: Download official Ambari repo
+  get_url:
+    dest: /etc/yum.repos.d/ambari.repo
+    url: "{{ ambari_repo }}"
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Install Ambari
+  package:
+    name: ambari-server
+    state: latest
+    
