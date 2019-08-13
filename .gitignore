@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# IDEs & Ansible
+.idea
+*.sublime-workspace
+*.code-workspace
+*.retry
+*.pyc
