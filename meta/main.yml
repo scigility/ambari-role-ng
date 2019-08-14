@@ -3,11 +3,12 @@ galaxy_info:
   author: Kirill Peskov
   description: Hortonworks Ambari installation role
   company: Scigility Switzerland AG
-
   license: BSD
-
   min_ansible_version: 2.7
-
+  platforms:
+    - name: RedHat
+      versions:
+        - 7
   galaxy_tags: []
 
 dependencies: []

@@ -6,9 +6,11 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
 
 
-def test_hosts_file(host):
-    f = host.file('/etc/hosts')
+def test_ambari_package(host):
+    p = host.package("ambari-server")
+    assert p.is_installed
 
-    assert f.exists
-    assert f.user == 'root'
-    assert f.group == 'root'
+
+def test_ambari_socket(host):
+    s = host.socket("tcp://8080")
+    assert s.is_listening

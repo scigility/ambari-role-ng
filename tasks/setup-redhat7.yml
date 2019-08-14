@@ -10,5 +10,4 @@
 - name: Install Ambari
   package:
     name: ambari-server
-    state: latest
-    
+    state: present
