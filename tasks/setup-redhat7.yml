@@ -11,3 +11,14 @@
   package:
     name: ambari-server
     state: present
+
+- name: Ambari-server initial setup
+  shell: "ambari-server setup -s"   # noqa 305
+  register: command_result
+  changed_when: ("Ambari Server \'setup\' completed successfully" in command_result.stdout)
+
+- name: Enable ambari startup on system boot and start it
+  service:
+    name: ambari-server
+    enabled: yes
+    state: started
